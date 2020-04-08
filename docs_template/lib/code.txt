@@ -1,0 +1,155 @@
+Widget gridViewElements = GridView.count(
+    padding: EdgeInsets.only(top: 15, right: 10, left: 10),
+    crossAxisSpacing: 8,
+    crossAxisCount: 3,
+    children: List.generate(listElements.length, (index) {
+        return Center(
+            child: new Column(
+                children: <Widget>[
+                    GestureDetector(
+                        onTap: () => null,
+                        child: Image.asset('images/image.jpeg'),
+                    ),
+                    Text(listElements[index]['name'], style: TextStyle(fontSize: 15),)
+                ],
+            ),
+        );
+    }),
+);
+
+/////////////////////////////////
+return ListView(
+    children: <Widget>[
+        Container(
+            height: 50,
+            child: const Center(child:
+            Text('FORMS', style: TextStyle(fontSize: 30, fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold))),
+            decoration: const BoxDecoration(
+                border: Border(
+                    top: BorderSide(width: 1.0, color: Colors.black),
+                ),
+            ),
+        ),
+        Container(
+            height: 125,
+            child: null,
+        ),
+        Container(
+            height: 150,
+            child: IconButton(
+                icon: Icon(Icons.arrow_right, size: 50,),
+                tooltip: 'Increase volume by 10',
+                onPressed: () {
+
+                },
+            ),
+            decoration: const BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(width: 1.0, color: Colors.black),
+                ),
+            ),
+        ),
+    ],
+);
+////////////////////////////////
+class GlobalPage extends StatefulWidget {
+    @override
+    _GlobalPage createState() => new _GlobalPage();
+}
+class _GlobalPage extends State<GlobalPage> {
+    Widget bodyGlobalPage;
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+            appBar: AppBar(
+                title: Text("DOCS TEMPLATE"),
+            ),
+            drawer: Drawer(
+                child: ListView(
+                    padding: EdgeInsets.zero,
+                    children: <Widget>[
+                        DrawerHeader(
+                            child: Text('DOCS TEMPLATE'),
+                            decoration: BoxDecoration(
+                                color: Colors.blue,
+                            ),
+                        ),
+                        ListTile(
+                            title: Text('HOME'),
+                            onTap: () {
+                                setState(() {
+                                    bodyGlobalPage = HomePage();
+                                    Navigator.pop(context);
+                                });
+                            },
+                        ),
+                        ListTile(
+                            title: Text('SETTINGS'),
+                            onTap: () {
+                                setState(() {
+                                    bodyGlobalPage = SettingsPage();
+                                    Navigator.pop(context);
+                                });
+                            },
+                        ),
+                    ],
+                ),
+            ),
+            body: Center(child: bodyGlobalPage),
+        );
+    }
+
+    @override
+    void initState() {
+        bodyGlobalPage = HomePage();
+        super.initState();
+    }
+
+    Drawer drawerHome() {
+        return Drawer(
+            child: ListView(
+                padding: EdgeInsets.zero,
+                children: <Widget>[
+                    DrawerHeader(
+                        child: Text('DOCS TEMPLATE'),
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                        ),
+                    ),
+                    ListTile(
+                        title: Text('HOME'),
+                        onTap: () {
+                            setState(() {
+                                bodyGlobalPage = HomePage();
+                                Navigator.pop(context);
+                            });
+                        },
+                    ),
+                    ListTile(
+                        title: Text('SETTINGS'),
+                        onTap: () {
+                            setState(() {
+                                bodyGlobalPage = SettingsPage();
+                                Navigator.pop(context);
+                            });
+                        },
+                    ),
+                ],
+            ),
+        );
+    }
+}
+
+//////////////////////
+
+Expand
+SafeArea
+Divided
+SizedBox
+
+string
+checkbox
+radio
+multiple
